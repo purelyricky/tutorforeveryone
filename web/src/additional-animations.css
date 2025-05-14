@@ -1,0 +1,359 @@
+/* Custom animations and transitions */
+.phase-initial {
+    --phase-color: var(--primary-color);
+  }
+  
+  .phase-assessment {
+    --phase-color: var(--accent-color);
+  }
+  
+  .phase-preparation {
+    --phase-color: var(--primary-color);
+  }
+  
+  .phase-learning {
+    --phase-color: var(--secondary-color);
+  }
+  
+  /* Neural network animation for loading screen */
+  .neural-network {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .neuron {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    animation: pulse 4s infinite;
+    z-index: 1;
+  }
+  
+  .neural-connection {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    animation: flash 3s infinite;
+    z-index: 0;
+  }
+  
+  @keyframes flash {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.5; }
+  }
+  
+  /* Success checkmark animation */
+  .checkmark {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    animation: fill 0.4s ease-in-out 0.4s forwards;
+  }
+  
+  .checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke: var(--secondary-color);
+    stroke-miterlimit: 10;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+  
+  .checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 3;
+    stroke: var(--secondary-color);
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+  }
+  
+  @keyframes stroke {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes fill {
+    100% {
+      box-shadow: inset 0 0 0 30px rgba(52, 168, 83, 0.1);
+    }
+  }
+  
+  /* Topic selector animations */
+  .topic-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease,
+                background-color 0.3s ease;
+  }
+  
+  .topic-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  .category-button {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease,
+                background-color 0.3s ease,
+                border-color 0.3s ease;
+  }
+  
+  .category-button:hover {
+    box-shadow: 0 10px 20px rgba(66, 133, 244, 0.15);
+  }
+  
+  .category-button.active {
+    transform: translateX(10px) scale(1.05);
+  }
+  
+  /* Page transition effects */
+  .topic-selection-screen,
+  .assessment-screen,
+  .loading-screen,
+  .learning-screen {
+    animation-fill-mode: both;
+  }
+  
+  .topic-selection-screen {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .assessment-screen {
+    animation: fadeInRight 0.6s ease-out;
+  }
+  
+  .loading-screen {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .learning-screen {
+    animation: fadeInLeft 0.6s ease-out;
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Improved content display animations */
+  .content-section {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+  }
+  
+  .content-section:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .content-section:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  .mermaid-diagram-container {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .question-prompt {
+    position: relative;
+    animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  /* Highlight effect enhancements */
+  .highlighted-text {
+    background-color: var(--highlight-color);
+    border-radius: var(--radius-sm);
+    padding: 0 2px;
+    animation: highlightPulse 2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 5;
+  }
+  
+  @keyframes highlightPulse {
+    0% {
+      background-color: transparent;
+    }
+    20% {
+      background-color: rgba(255, 255, 0, 0.8);
+      box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    }
+    60% {
+      background-color: var(--highlight-color);
+      box-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+    }
+    100% {
+      background-color: rgba(255, 255, 0, 0.2);
+      box-shadow: none;
+    }
+  }
+  
+  /* Improved loading bar */
+  .loading-progress-bar {
+    height: 12px;
+    background-color: var(--surface-color);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+    box-shadow: var(--shadow-sm) inset;
+    position: relative;
+  }
+  
+  .loading-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.15) 50%, 
+      transparent 100%);
+    animation: shimmer 2s infinite;
+    transform: translateX(-100%);
+  }
+  
+  .loading-progress-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-full);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+  }
+  
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Interactive elements */
+  .option {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .option:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+  
+  .option.selected {
+    animation: selectPulse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes selectPulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsive improvements */
+  @media (max-width: 768px) {
+    .category-selection {
+      flex-direction: column;
+    }
+    
+    .category-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: var(--spacing-sm);
+    }
+    
+    .category-button.active {
+      transform: translateY(-5px) scale(1.05);
+    }
+  }
+  
+  /* Brain animation enhancements */
+  .brain-svg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .brain-path {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawBrain 2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+  }
+  
+  @keyframes drawBrain {
+    0% {
+      stroke-dashoffset: 200;
+      stroke-width: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      stroke-width: 3;
+    }
+  }
+  
+  /* App initialization animation */
+  .app-initializing {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .loader {
+    position: relative;
+  }
+  
+  .loader::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-light);
+    opacity: 0.6;
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Message bubble enhancements */
+  .message {
+    transition: all 0.3s ease;
+  }
+  
+  .message.assistant {
+    animation: fadeInLeft 0.5s ease-out;
+  }
+  
+  .message.user {
+    animation: fadeInRight 0.5s ease-out;
+  }

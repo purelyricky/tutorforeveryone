@@ -1,7 +1,8 @@
-import { Analytics } from "@vercel/analytics/react";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './additional-animations.css';
+import './conversation-fixes.css'; // Import the conversation fixes
 import App from './app';
 import reportWebVitals from './reportWebVitals';
 
@@ -12,7 +13,6 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
-    <Analytics />
   </React.StrictMode>
 );
 
